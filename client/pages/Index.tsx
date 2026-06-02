@@ -2,12 +2,8 @@ import { Layout } from '@/components/Layout';
 import { ArrowRight, CheckCircle, Target, Users, Lightbulb, Award, Briefcase, Zap, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { ServiceModal, Service } from '@/components/ServiceModal';
+import { ClientCarousel } from '@/components/ClientCarousel';
 
-const ClientLogo = ({ name }: { name: string }) => (
-  <div className="flex items-center justify-center h-24 md:h-28 px-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer group">
-    <span className="text-gray-700 font-semibold text-center text-sm group-hover:text-primary transition-colors">{name}</span>
-  </div>
-);
 
 const serviceData: Record<string, Service> = {
   skills: {
@@ -293,88 +289,126 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Trusted by Industry Leaders</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-8 bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl border border-primary/20">
-              <ClientLogo name="Coca-Cola Beverages" />
-              <ClientLogo name="Distell" />
-              <ClientLogo name="Heineken Beverages" />
-              <ClientLogo name="P&G" />
-              <ClientLogo name="SAB" />
-              <ClientLogo name="Bridgestone" />
-              <ClientLogo name="AngloAmerican" />
-              <ClientLogo name="Telkom Foundation" />
-              <ClientLogo name="Samsung" />
-              <ClientLogo name="Standard Bank" />
-              <ClientLogo name="SEDA" />
-              <ClientLogo name="Gauteng Province" />
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Trusted by Industry Leaders</h3>
+            <p className="text-gray-600 text-center mb-8">We've partnered with leading organizations across multiple sectors</p>
+            <div className="bg-gradient-to-r from-primary/5 via-white to-primary/5 p-8 rounded-2xl border border-primary/10">
+              <ClientCarousel />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Certifications Section */}
+      {/* Industry Certifications Section */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Accreditations & Certifications</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Industry-recognized credentials demonstrating our expertise
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Industry Certifications</h2>
+            <div className="w-16 h-1 bg-primary mx-auto mt-4"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Industry Certifications</h3>
-              <div className="space-y-6">
-                <CertItem
-                  title="GrowthWheel® Certified Business Advisor"
-                  description="For enterprises at various growth stages. An online, real-time platform that allows access for the client, beneficiary and implementer to load, view, analyse and report on programme data."
-                />
-                <CertItem
-                  title="Commerce Edge Certified Practitioner"
-                  description="Certified Enterprise and Supplier Development practitioner demonstrating competence in business development."
-                />
-                <CertItem
-                  title="SEDA Business Coach"
-                  description="Certified Small Enterprise Development Agency business coach (an agency of the Department of Small Business Development)."
-                />
-              </div>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <AccreditationCard
+              title="GrowthWheel® Certified Business Advisor"
+              description="For enterprises at various growth stages. An online, real-time platform that allows access for the client, beneficiary and implementer to load, view, analyse and report on programme data."
+              logoText="GW"
+              bgColor="bg-gradient-to-br from-yellow-100 to-orange-100"
+            />
+            <AccreditationCard
+              title="Commerce Edge Certified Practitioner"
+              description="Certified Enterprise and Supplier Development practitioner demonstrating competence in business development."
+              logoText="CE"
+              bgColor="bg-gradient-to-br from-amber-100 to-yellow-100"
+            />
+            <AccreditationCard
+              title="SEDA Business Coach"
+              description="Certified Small Enterprise Development Agency business coach (an agency of the Department of Small Business Development)."
+              logoText="SD"
+              bgColor="bg-gradient-to-br from-orange-100 to-red-100"
+            />
+          </div>
+        </div>
+      </section>
 
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">QCTO & SETA Accreditations</h3>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>QCTO Occupational Skills Programme:</strong> New Venture Creation (07-QCTO/SDP170625095213)</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>Services SETA:</strong> 13387: Generic Management NQF 4 and 5, New Venture Creation NQF 2 and 4</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>ETDP SETA:</strong> ETDP011023 ODETDP 50334 NQF 5</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>QCTO & NAMB:</strong> Accreditation Centre Number AC000293NAMB (Electrical)</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>INSETA:</strong> Registration 04A1301358 (Assessor) & 04M1300373 (Moderator)</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>Services SETA:</strong> 04A1301358 (Assessor); 04M1300373 (Moderator)</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700"><strong>ETDP SETA:</strong> Registration 487089 (Assessor)</span>
-                </li>
-              </ul>
-            </div>
+      {/* QCTO & SETA Accreditations Section */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">QCTO & SETA Accreditations</h2>
+            <div className="w-16 h-1 bg-primary mx-auto mt-4"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <AccreditationCard
+              title="Quality Council for Trades & Occupations"
+              description="QCTO Occupational Skills Programme: New Venture Creation (07-QCTO/SDP170625095213)"
+              logoText="QCTO"
+              bgColor="bg-gradient-to-br from-red-100 to-rose-100"
+            />
+            <AccreditationCard
+              title="ETDP SETA"
+              description="ETDP011023 ODETDP 50334 NQF 5 - Education, Training and Development Sector Education and Training Authority"
+              logoText="ETDP"
+              bgColor="bg-gradient-to-br from-blue-100 to-cyan-100"
+            />
+            <AccreditationCard
+              title="Services SETA"
+              description="13387: Generic Management NQF 4 and 5, New Venture Creation NQF 2 and 4 - Accreditation 04A1301358 (Assessor); 04M1300373 (Moderator)"
+              logoText="SSETA"
+              bgColor="bg-gradient-to-br from-orange-100 to-amber-100"
+            />
+            <AccreditationCard
+              title="Manufacturing, Engineering & Related Services SETA"
+              description="Supporting skills development across manufacturing and related services sectors."
+              logoText="MER"
+              bgColor="bg-gradient-to-br from-yellow-100 to-amber-100"
+            />
+            <AccreditationCard
+              title="INSETA"
+              description="Insurance Sector Education and Training Authority - Registration 04A1301358 (Assessor) & 04M1300373 (Moderator)"
+              logoText="INSETA"
+              bgColor="bg-gradient-to-br from-blue-100 to-indigo-100"
+            />
+            <AccreditationCard
+              title="QCTO & NAMB"
+              description="Accreditation Centre Number AC000293NAMB (Electrical) - Quality Council for Trades & Occupations and National Artisan Moderation Body"
+              logoText="NAMB"
+              bgColor="bg-gradient-to-br from-purple-100 to-pink-100"
+            />
+          </div>
+
+          <div className="bg-white p-8 rounded-2xl border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Complete Accreditation Summary</h3>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>QCTO Occupational Skills Programme:</strong> New Venture Creation (07-QCTO/SDP170625095213)</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Services SETA:</strong> 13387: Generic Management NQF 4 and 5, New Venture Creation NQF 2 and 4</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>ETDP SETA:</strong> ETDP011023 ODETDP 50334 NQF 5</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>QCTO & NAMB:</strong> Accreditation Centre Number AC000293NAMB (Electrical)</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>INSETA:</strong> Registration 04A1301358 (Assessor) & 04M1300373 (Moderator)</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Services SETA:</strong> 04A1301358 (Assessor); 04M1300373 (Moderator)</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>ETDP SETA:</strong> Registration 487089 (Assessor)</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -479,10 +513,23 @@ const ExperienceCard = ({ number, label }: { number: string; label: string }) =>
   </div>
 );
 
-const CertItem = ({ title, description }: { title: string; description: string }) => (
-  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-all">
-    <h4 className="font-semibold text-gray-900 mb-2">{title}</h4>
-    <p className="text-sm text-gray-600">{description}</p>
+const AccreditationCard = ({
+  title,
+  description,
+  logoText,
+  bgColor
+}: {
+  title: string;
+  description: string;
+  logoText: string;
+  bgColor: string;
+}) => (
+  <div className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all group">
+    <div className={`w-20 h-20 ${bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+      <span className="text-2xl font-bold text-gray-700 group-hover:text-primary transition-colors">{logoText}</span>
+    </div>
+    <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{title}</h4>
+    <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
   </div>
 );
 
