@@ -3,22 +3,20 @@
   <g id="q-logo">
     <!-- Outer rounded square for Q -->
     <rect x="150" y="80" width="250" height="250" rx="40" ry="40" fill="none" stroke="#7FD670" stroke-width="45"/>
-    <!-- Inner white space (creates the Q shape) -->
-    <circle cx="420" cy="250" r="120" fill="white"/>
     <!-- Vertical stem of Q -->
     <rect x="365" y="280" width="40" height="100" fill="#4A5568" rx="20"/>
   </g>
-  
+
   <!-- Right S with green rounded corners -->
   <g id="s-logo">
     <!-- Top curve of S -->
-    <path d="M 550 150 Q 550 100 600 100 Q 650 100 650 140 Q 650 180 600 180 Q 550 180 550 220" 
+    <path d="M 550 150 Q 550 100 600 100 Q 650 100 650 140 Q 650 180 600 180 Q 550 180 550 220"
           fill="none" stroke="#7FD670" stroke-width="45" stroke-linecap="round"/>
     <!-- Bottom curve of S -->
-    <path d="M 550 280 Q 550 240 600 240 Q 650 240 650 280 Q 650 320 600 320 Q 550 320 550 360" 
+    <path d="M 550 280 Q 550 240 600 240 Q 650 240 650 280 Q 650 320 600 320 Q 550 320 550 360"
           fill="none" stroke="#7FD670" stroke-width="45" stroke-linecap="round"/>
   </g>
-  
+
   <!-- Text: QOPHA SOLUTIONS -->
   <g id="text">
     <!-- QOPHA text -->

@@ -47,13 +47,22 @@ const Header = () => {
             <NavLink href="#contact">Contact</NavLink>
           </nav>
 
-          <Link
-            to="#contact"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-2 bg-primary text-gray-900 rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
-          >
-            Get in Touch
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:0844174305"
+              className="inline-flex items-center gap-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
+            >
+              <Phone className="w-4 h-4" />
+              Call
+            </a>
+            <Link
+              to="#contact"
+              className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-gray-900 rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
+            >
+              Get in Touch
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -76,6 +85,14 @@ const Header = () => {
             <MobileNavLink href="#values" onClick={() => setIsMenuOpen(false)}>Our Values</MobileNavLink>
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Clients & Experience</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</MobileNavLink>
+            <a
+              href="tel:0844174305"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call
+            </a>
             <Link
               to="#contact"
               onClick={() => setIsMenuOpen(false)}

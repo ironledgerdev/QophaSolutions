@@ -169,12 +169,8 @@ const Index = () => {
       {/* Hero Section */}
       <section className="text-white py-20 md:py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl">
             <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Enterprise Transformation</span>
-              </div>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                 Real Impact Solutions for Sustainable Transformation
               </h1>
@@ -185,15 +181,6 @@ const Index = () => {
                 Get Started
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-            </div>
-
-            <div className="hidden md:block">
-              <div className="relative animate-fade-in-down">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-2xl"></div>
-                <div className="relative w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl border-2 border-primary/30 flex items-center justify-center backdrop-blur-sm hover:border-primary/50 transition-colors duration-300">
-                  <img src="/qopha-logo.svg" alt="Qopha Solutions" className="w-4/5 h-4/5 object-contain animate-pulse" />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -222,7 +209,7 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <StatBox number="50+" label="Female-Owned SMEs Empowered" icon={Users} />
+              <StatBox number="50+" label="Trained Female-Owned SMEs Empowered" icon={Users} />
               <StatBox number="7,000+" label="Professionals Trained" icon={Award} />
               <StatBox number="30+" label="Industry Partners" icon={Briefcase} />
               <StatBox number="9" label="Years of Excellence" icon={Target} />

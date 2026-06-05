@@ -104,17 +104,14 @@ export const ClientCarousel = () => {
 };
 
 const ClientLogoCard = ({ name, category }: Client) => (
-  <div className="flex-shrink-0 w-40 h-28 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-4 group cursor-pointer">
+  <div className="flex-shrink-0 w-40 h-28 bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg shadow-sm hover:shadow-md transition-all hover:bg-white/20 flex items-center justify-center p-4 group cursor-pointer">
     <div className="text-center">
-      <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-gray-100 group-hover:bg-primary/10 rounded-lg transition-colors">
-        <div className="text-lg font-bold text-gray-700 group-hover:text-primary transition-colors">
-          {name.substring(0, 2).toUpperCase()}
+      <div className="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-gray-200 group-hover:bg-primary/30 rounded-lg transition-colors">
+        <div className="text-lg font-bold text-gray-700 group-hover:text-primary transition-colors text-center">
+          {name}
         </div>
       </div>
-      <p className="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors">
-        {name}
-      </p>
-      <p className="text-xs text-gray-500 mt-1">{category}</p>
+      <p className="text-xs text-gray-300 mt-1">{category}</p>
     </div>
   </div>
 );
