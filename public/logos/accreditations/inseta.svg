@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .inseta-text { font-family: Arial, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="white" stroke="#003366" stroke-width="2"/>
+  <g transform="translate(100, 70)">
+    <circle cx="-12" cy="0" r="10" fill="#003366"/>
+    <circle cx="12" cy="0" r="10" fill="#FFD700"/>
+    <circle cx="0" cy="15" r="10" fill="#0066CC"/>
+  </g>
+  <text x="100" y="135" text-anchor="middle" class="inseta-text" font-size="13" fill="#003366">INSETA</text>
+  <text x="100" y="155" text-anchor="middle" font-size="8" fill="#666">Insurance Authority</text>
+</svg>
