@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .gw-text { font-family: Arial, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <circle cx="100" cy="60" r="45" fill="white" stroke="#333" stroke-width="2"/>
+  <circle cx="75" cy="45" r="15" fill="#FFD700"/>
+  <circle cx="100" cy="35" r="15" fill="#FF6B6B"/>
+  <circle cx="125" cy="45" r="15" fill="#4ECDC4"/>
+  <circle cx="110" cy="65" r="15" fill="#FFB84D"/>
+  <circle cx="90" cy="65" r="15" fill="#95E1D3"/>
+  <text x="100" y="130" text-anchor="middle" class="gw-text" font-size="14" fill="#333">GrowthWheel®</text>
+  <text x="100" y="150" text-anchor="middle" font-size="10" fill="#666">Certified Advisor</text>
+</svg>

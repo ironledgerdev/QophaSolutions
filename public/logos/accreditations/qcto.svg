@@ -1,0 +1,14 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .qcto-text { font-family: Arial, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="white" stroke="#E31E24" stroke-width="2"/>
+  <rect x="50" y="40" width="100" height="70" fill="#E31E24" rx="5"/>
+  <g transform="translate(100, 75)">
+    <path d="M -20 0 L -10 15 L 0 0 L 10 15 L 20 0" fill="white" stroke="white" stroke-width="1.5"/>
+    <path d="M -20 5 L 20 5" stroke="white" stroke-width="2"/>
+  </g>
+  <text x="100" y="145" text-anchor="middle" class="qcto-text" font-size="14" fill="#E31E24">QCTO</text>
+</svg>

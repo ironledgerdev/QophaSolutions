@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Target, Users, Lightbulb, Award, Briefcase, Za
 import { useState } from 'react';
 import { ServiceModal, Service } from '@/components/ServiceModal';
 import { ClientCarousel } from '@/components/ClientCarousel';
+import { ClientsModal } from '@/components/ClientsModal';
 
 
 const serviceData: Record<string, Service> = {
@@ -62,16 +63,26 @@ const AccreditationCard = ({
   title,
   description,
   logoText,
-  bgColor
+  bgColor,
+  logoSrc
 }: {
   title: string;
   description: string;
   logoText: string;
   bgColor: string;
+  logoSrc?: string;
 }) => (
   <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/30 hover:shadow-lg transition-all group">
-    <div className={`w-20 h-20 ${bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-      <span className="text-2xl font-bold text-gray-700 group-hover:text-primary transition-colors">{logoText}</span>
+    <div className={`w-24 h-24 ${bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform overflow-hidden`}>
+      {logoSrc ? (
+        <img
+          src={logoSrc}
+          alt={title}
+          className="w-full h-full object-contain p-2"
+        />
+      ) : (
+        <span className="text-2xl font-bold text-gray-700 group-hover:text-primary transition-colors">{logoText}</span>
+      )}
     </div>
     <h4 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{title}</h4>
     <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
@@ -158,6 +169,7 @@ const CertCard = ({ title, items }: CertCardProps) => (
 const Index = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClientsModalOpen, setIsClientsModalOpen] = useState(false);
 
   const handleServiceClick = (serviceKey: keyof typeof serviceData) => {
     setSelectedService(serviceData[serviceKey]);
@@ -363,9 +375,20 @@ const Index = () => {
             <div className="bg-gradient-to-r from-primary/5 via-white to-primary/5 p-8 rounded-2xl border border-primary/10">
               <ClientCarousel />
             </div>
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => setIsClientsModalOpen(true)}
+                className="inline-flex items-center gap-2 px-8 py-3 bg-primary/20 text-primary rounded-lg hover:bg-primary/30 transition-all font-semibold border border-primary/50 hover:border-primary/80 hover:shadow-lg"
+              >
+                View All Partners
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
+
+      <ClientsModal isOpen={isClientsModalOpen} onClose={() => setIsClientsModalOpen(false)} />
 
       {/* Industry Certifications Section */}
       <section className="py-20 md:py-28 bg-white/5 backdrop-blur-sm">
@@ -380,19 +403,22 @@ const Index = () => {
               title="GrowthWheel® Certified Business Advisor"
               description="For enterprises at various growth stages. An online, real-time platform that allows access for the client, beneficiary and implementer to load, view, analyse and report on programme data."
               logoText="GW"
-              bgColor="bg-gradient-to-br from-yellow-100 to-orange-100"
+              bgColor="bg-white"
+              logoSrc="/logos/accreditations/growthwheel.svg"
             />
             <AccreditationCard
               title="Commerce Edge Certified Practitioner"
               description="Certified Enterprise and Supplier Development practitioner demonstrating competence in business development."
               logoText="CE"
-              bgColor="bg-gradient-to-br from-amber-100 to-yellow-100"
+              bgColor="bg-white"
+              logoSrc="/logos/accreditations/commerce-edge.svg"
             />
             <AccreditationCard
               title="SEDA Business Coach"
               description="Certified Small Enterprise Development Agency business coach (an agency of the Department of Small Business Development)."
               logoText="SD"
-              bgColor="bg-gradient-to-br from-orange-100 to-red-100"
+              bgColor="bg-white"
+              logoSrc="/logos/accreditations/seda.svg"
             />
           </div>
         </div>
