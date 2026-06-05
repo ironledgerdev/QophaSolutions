@@ -1,7 +1,25 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="32" height="32" rx="6" fill="#7FCC39"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="100" height="100" fill="#1a1a1a" rx="12"/>
   
-  <!-- QS Text -->
-  <text x="16" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">QS</text>
+  <!-- Left Q with green rounded corners -->
+  <g id="q-favicon">
+    <!-- Outer rounded square for Q -->
+    <rect x="12" y="15" width="30" height="30" rx="6" ry="6" fill="none" stroke="#7FD670" stroke-width="6"/>
+    <!-- Vertical stem of Q -->
+    <rect x="33" y="35" width="5" height="12" fill="#4A5568" rx="2.5"/>
+  </g>
+  
+  <!-- Right S with green rounded corners -->
+  <g id="s-favicon">
+    <!-- Top curve of S -->
+    <path d="M 58 20 Q 58 15 65 15 Q 72 15 72 22 Q 72 28 65 28 Q 58 28 58 32" 
+          fill="none" stroke="#7FD670" stroke-width="6" stroke-linecap="round"/>
+    <!-- Bottom curve of S -->
+    <path d="M 58 38 Q 58 34 65 34 Q 72 34 72 40 Q 72 46 65 46 Q 58 46 58 50" 
+          fill="none" stroke="#7FD670" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Vertical separator line -->
+  <line x1="48" y1="20" x2="48" y2="50" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
 </svg>

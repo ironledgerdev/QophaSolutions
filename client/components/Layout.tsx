@@ -4,9 +4,23 @@ import { useState } from 'react';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      {/* Animated background blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl opacity-10 animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      {/* Grid background */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {children}
       </main>
       <Footer />
@@ -18,17 +32,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <header className="bg-black/20 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-lg">QS</span>
-            </div>
-            <div>
-              <div className="font-bold text-lg text-gray-900">Qopha</div>
-              <div className="text-xs text-primary font-semibold">Solutions</div>
-            </div>
+            <img src="/qopha-logo.svg" alt="Qopha Solutions" className="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -39,39 +47,56 @@ const Header = () => {
             <NavLink href="#contact">Contact</NavLink>
           </nav>
 
-          <Link
-            to="#contact"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
-          >
-            Get in Touch
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:0844174305"
+              className="inline-flex items-center gap-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
+            >
+              <Phone className="w-4 h-4" />
+              Call
+            </a>
+            <Link
+              to="#contact"
+              className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-gray-900 rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
+            >
+              Get in Touch
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-900" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-900" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+          <nav className="md:hidden mt-4 pb-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-300 bg-black/20 rounded-lg p-4">
             <MobileNavLink href="#about" onClick={() => setIsMenuOpen(false)}>About Us</MobileNavLink>
             <MobileNavLink href="#services" onClick={() => setIsMenuOpen(false)}>Services</MobileNavLink>
             <MobileNavLink href="#values" onClick={() => setIsMenuOpen(false)}>Our Values</MobileNavLink>
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Clients & Experience</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</MobileNavLink>
+            <a
+              href="tel:0844174305"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call
+            </a>
             <Link
               to="#contact"
               onClick={() => setIsMenuOpen(false)}
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-gray-900 rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
               Get in Touch
               <ArrowRight className="w-4 h-4" />
@@ -87,42 +112,36 @@ const MobileNavLink = ({ href, children, onClick }: { href: string; children: Re
   <a
     href={href}
     onClick={onClick}
-    className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors font-medium"
+    className="block px-4 py-2 text-white hover:text-primary hover:bg-white/10 rounded-lg transition-colors font-medium"
   >
     {children}
   </a>
 );
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a href={href} className="text-gray-700 hover:text-primary transition-colors font-medium text-sm">
+  <a href={href} className="text-white/80 hover:text-primary transition-colors font-medium text-sm">
     {children}
   </a>
 );
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white border-t border-gray-800">
+    <footer className="bg-black/40 backdrop-blur-md border-t border-white/10 text-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-gray-900 font-bold text-lg">QS</span>
-              </div>
-              <div>
-                <div className="font-bold text-lg">Qopha</div>
-                <div className="text-xs text-gray-400">Solutions</div>
-              </div>
+              <img src="/qopha-logo.svg" alt="Qopha Solutions" className="w-10 h-10" />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+            <p className="text-gray-300 text-sm leading-relaxed max-w-md">
               Real Impact Solutions for Sustainable Transformation. A B-BBEE Level one black woman owned training and consultancy firm specialising in skills development and end-to-end project management services.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <h3 className="font-semibold mb-4 text-sm">SERVICES</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 className="font-semibold mb-4 text-sm text-primary">SERVICES</h3>
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li><a href="#" className="hover:text-primary transition-colors">Skills Development</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Enterprise Development</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Supplier Development</a></li>
@@ -130,8 +149,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4 text-sm">COMPANY</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 className="font-semibold mb-4 text-sm text-primary">COMPANY</h3>
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
                 <li><a href="#values" className="hover:text-primary transition-colors">Our Values</a></li>
                 <li><a href="#experience" className="hover:text-primary transition-colors">Experience</a></li>
@@ -141,13 +160,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-white/10 pt-8">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div className="text-sm">
                 <p className="font-medium">Address</p>
-                <p className="text-gray-400">33 Ballyclare Drive, Ballywoods Office Park, Cedarwood House, Bryanston, Gauteng 2191</p>
+                <p className="text-gray-300">33 Ballyclare Drive, Ballywoods Office Park, Cedarwood House, Bryanston, Gauteng 2191</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -158,7 +177,7 @@ const Footer = () => {
                   href="https://wa.me/27084174305?text=Hi%20Qopha%20Solutions"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary transition-colors"
+                  className="text-gray-300 hover:text-primary transition-colors"
                 >
                   084 417 4305
                 </a>
@@ -168,12 +187,12 @@ const Footer = () => {
               <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div className="text-sm">
                 <p className="font-medium">Email</p>
-                <p className="text-gray-400">info@qophasolutions.co.za</p>
+                <p className="text-gray-300">info@qophasolutions.co.za</p>
               </div>
             </div>
           </div>
 
-          <div className="text-center text-sm text-gray-500">
+          <div className="text-center text-sm text-gray-400">
             <p>&copy; 2024 Qopha Solutions. All rights reserved. | Company Reg: 2016/172461/07</p>
           </div>
         </div>

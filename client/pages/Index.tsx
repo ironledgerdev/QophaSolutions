@@ -69,12 +69,12 @@ const AccreditationCard = ({
   logoText: string;
   bgColor: string;
 }) => (
-  <div className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all group">
+  <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/30 hover:shadow-lg transition-all group">
     <div className={`w-20 h-20 ${bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
       <span className="text-2xl font-bold text-gray-700 group-hover:text-primary transition-colors">{logoText}</span>
     </div>
-    <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{title}</h4>
-    <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+    <h4 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{title}</h4>
+    <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
   </div>
 );
 
@@ -85,10 +85,10 @@ interface StatBoxProps {
 }
 
 const StatBox = ({ number, label, icon: Icon }: StatBoxProps) => (
-  <div className="bg-primary/5 p-6 rounded-xl border border-primary/10 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:bg-primary/10 group">
+  <div className="bg-primary/20 p-6 rounded-xl border border-primary/30 hover:border-primary/60 hover:shadow-lg transition-all duration-300 hover:bg-primary/30 group">
     <Icon className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-    <div className="text-3xl font-bold text-gray-900 mb-1">{number}</div>
-    <p className="text-sm text-gray-600">{label}</p>
+    <div className="text-3xl font-bold text-white mb-1">{number}</div>
+    <p className="text-sm text-gray-300">{label}</p>
   </div>
 );
 
@@ -102,17 +102,17 @@ interface ServiceCardProps {
 const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) => (
   <button
     onClick={onClick}
-    className="group bg-white p-8 rounded-2xl border border-gray-100 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-gradient-to-br hover:from-white hover:to-primary/5 text-left w-full"
+    className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15 text-left w-full"
   >
     <div className="flex items-center gap-3 mb-6">
-      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+      <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
         <Icon className="w-6 h-6 text-primary" />
       </div>
-      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">{title}</h3>
+      <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">{title}</h3>
     </div>
     <ul className="space-y-3">
       {items.map((item, idx) => (
-        <li key={idx} className="flex items-start gap-3 text-gray-700 group-hover:text-gray-900 transition-colors">
+        <li key={idx} className="flex items-start gap-3 text-gray-300 group-hover:text-gray-100 transition-colors">
           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
           <span className="group-hover:translate-x-1 transition-transform">{item}</span>
         </li>
@@ -127,12 +127,12 @@ const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) =>
 );
 
 const ExperienceCard = ({ number, label }: { number: string; label: string }) => (
-  <div className="group bg-white p-8 rounded-2xl border border-gray-100 hover:border-primary/30 text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
-    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors mx-auto">
+  <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/30 text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mb-4 group-hover:bg-primary/30 transition-colors mx-auto">
       <TrendingUp className="w-6 h-6 text-primary" />
     </div>
     <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">{number}</div>
-    <p className="text-gray-700 font-medium">{label}</p>
+    <p className="text-gray-200 font-medium">{label}</p>
   </div>
 );
 
@@ -142,11 +142,11 @@ interface CertCardProps {
 }
 
 const CertCard = ({ title, items }: CertCardProps) => (
-  <div className="group bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:bg-gradient-to-br hover:from-gray-50 hover:to-primary/5 transition-all duration-300 hover:shadow-lg">
-    <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-primary transition-colors">{title}</h3>
+  <div className="group bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/30 hover:bg-white/10 transition-all duration-300 hover:shadow-lg">
+    <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-primary transition-colors">{title}</h3>
     <ul className="space-y-4">
       {items.map((item, idx) => (
-        <li key={idx} className="flex items-start gap-3 text-gray-700 group-hover:text-gray-900 transition-colors">
+        <li key={idx} className="flex items-start gap-3 text-gray-300 group-hover:text-gray-100 transition-colors">
           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
           <span className="text-sm group-hover:translate-x-1 transition-transform">{item}</span>
         </li>
@@ -167,27 +167,10 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        </div>
-
-        {/* Tech Grid Background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
+      <section className="text-white py-20 md:py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl">
             <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Enterprise Transformation</span>
-              </div>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                 Real Impact Solutions for Sustainable Transformation
               </h1>
@@ -199,30 +182,17 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-
-            <div className="hidden md:block">
-              <div className="relative animate-fade-in-down">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-2xl"></div>
-                <div className="relative w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl border-2 border-primary/30 flex items-center justify-center backdrop-blur-sm hover:border-primary/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <div className="text-8xl font-bold text-primary mb-4 animate-pulse">QS</div>
-                    <p className="text-2xl text-white font-semibold">Qopha Solutions</p>
-                    <p className="text-primary/80 mt-2 font-medium">Real Impact Solutions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-28 bg-white">
+      <section id="about" className="py-20 md:py-28 bg-white/5 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Qopha Solutions</h2>
-              <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">About Qopha Solutions</h2>
+              <div className="space-y-4 text-gray-200 text-lg leading-relaxed">
                 <p>
                   We are a <span className="font-semibold">B-BBEE Level one black woman owned</span> training and consultancy firm specialising in skills development and end-to-end project management services.
                 </p>
@@ -239,7 +209,7 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <StatBox number="50+" label="Female-Owned SMEs Empowered" icon={Users} />
+              <StatBox number="50+" label="Trained Female-Owned SMEs Empowered" icon={Users} />
               <StatBox number="7,000+" label="Professionals Trained" icon={Award} />
               <StatBox number="30+" label="Industry Partners" icon={Briefcase} />
               <StatBox number="9" label="Years of Excellence" icon={Target} />
@@ -249,27 +219,27 @@ const Index = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section id="values" className="py-20 md:py-28 bg-gray-50">
+      <section id="values" className="py-20 md:py-28 bg-black/20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Vision & Mission</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Vision & Mission</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Guiding principles that drive everything we do
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-100 hover:border-primary/30 transition-colors">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
+            <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10 hover:border-primary/30 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
+              <p className="text-gray-200 text-lg leading-relaxed">
                 To be a leading firm in providing real impact solutions that promote sustainable transformation.
               </p>
               <div className="w-12 h-1 bg-primary mt-6"></div>
             </div>
 
-            <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-100 hover:border-primary/30 transition-colors">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Core Values</h3>
-              <ul className="space-y-3 text-gray-700">
+            <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10 hover:border-primary/30 transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4">Our Core Values</h3>
+              <ul className="space-y-3 text-gray-200">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span><strong>Innovation:</strong> Better ways to deliver</span>
@@ -297,11 +267,11 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 md:py-28 bg-white">
+      <section id="services" className="py-20 md:py-28 bg-white/5 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Comprehensive solutions tailored to your transformation journey
             </p>
           </div>
@@ -360,11 +330,11 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 md:py-28 bg-gray-50">
+      <section id="experience" className="py-20 md:py-28 bg-black/20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Proven Track Record</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Track Record</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Trusted by industry leaders across multiple sectors
             </p>
           </div>
@@ -375,21 +345,21 @@ const Index = () => {
             <ExperienceCard number="30,000" label="Youth Reached Annually" />
           </div>
 
-          <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Industries We Serve</h3>
+          <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10">
+            <h3 className="text-2xl font-bold text-white mb-6">Industries We Serve</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {['Mining', 'Automotive', 'ICT', 'Public Sector', 'Financial Services', 'FMCG', 'Energy', 'NGO & Partnerships'].map((industry) => (
-                <div key={industry} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg border border-gray-100">
+                <div key={industry} className="flex items-center gap-2 p-3 bg-white/10 rounded-lg border border-white/5">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-gray-700 font-medium text-sm">{industry}</span>
+                  <span className="text-gray-200 font-medium text-sm">{industry}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Trusted by Industry Leaders</h3>
-            <p className="text-gray-600 text-center mb-8">We've partnered with leading organizations across multiple sectors</p>
+            <h3 className="text-2xl font-bold text-white mb-4 text-center">Trusted by Industry Leaders</h3>
+            <p className="text-gray-300 text-center mb-8">We've partnered with leading organizations across multiple sectors</p>
             <div className="bg-gradient-to-r from-primary/5 via-white to-primary/5 p-8 rounded-2xl border border-primary/10">
               <ClientCarousel />
             </div>
@@ -398,10 +368,10 @@ const Index = () => {
       </section>
 
       {/* Industry Certifications Section */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-white/5 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Industry Certifications</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Industry Certifications</h2>
             <div className="w-16 h-1 bg-primary mx-auto mt-4"></div>
           </div>
 
@@ -429,10 +399,10 @@ const Index = () => {
       </section>
 
       {/* QCTO & SETA Accreditations Section */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      <section className="py-20 md:py-28 bg-black/20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">QCTO & SETA Accreditations</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">QCTO & SETA Accreditations</h2>
             <div className="w-16 h-1 bg-primary mx-auto mt-4"></div>
           </div>
 
@@ -475,36 +445,36 @@ const Index = () => {
             />
           </div>
 
-          <div className="bg-white p-8 rounded-2xl border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Complete Accreditation Summary</h3>
+          <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+            <h3 className="text-2xl font-bold text-white mb-6">Complete Accreditation Summary</h3>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>QCTO Occupational Skills Programme:</strong> New Venture Creation (07-QCTO/SDP170625095213)</span>
+                <span className="text-gray-200"><strong>QCTO Occupational Skills Programme:</strong> New Venture Creation (07-QCTO/SDP170625095213)</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>Services SETA:</strong> 13387: Generic Management NQF 4 and 5, New Venture Creation NQF 2 and 4</span>
+                <span className="text-gray-200"><strong>Services SETA:</strong> 13387: Generic Management NQF 4 and 5, New Venture Creation NQF 2 and 4</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>ETDP SETA:</strong> ETDP011023 ODETDP 50334 NQF 5</span>
+                <span className="text-gray-200"><strong>ETDP SETA:</strong> ETDP011023 ODETDP 50334 NQF 5</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>QCTO & NAMB:</strong> Accreditation Centre Number AC000293NAMB (Electrical)</span>
+                <span className="text-gray-200"><strong>QCTO & NAMB:</strong> Accreditation Centre Number AC000293NAMB (Electrical)</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>INSETA:</strong> Registration 04A1301358 (Assessor) & 04M1300373 (Moderator)</span>
+                <span className="text-gray-200"><strong>INSETA:</strong> Registration 04A1301358 (Assessor) & 04M1300373 (Moderator)</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>Services SETA:</strong> 04A1301358 (Assessor); 04M1300373 (Moderator)</span>
+                <span className="text-gray-200"><strong>Services SETA:</strong> 04A1301358 (Assessor); 04M1300373 (Moderator)</span>
               </li>
               <li className="flex gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>ETDP SETA:</strong> Registration 487089 (Assessor)</span>
+                <span className="text-gray-200"><strong>ETDP SETA:</strong> Registration 487089 (Assessor)</span>
               </li>
             </ul>
           </div>
@@ -514,11 +484,7 @@ const Index = () => {
       <ServiceModal isOpen={isModalOpen} service={selectedService} onClose={() => setIsModalOpen(false)} />
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-transparent to-transparent"></div>
-        </div>
-        
+      <section id="contact" className="py-20 md:py-28 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform?</h2>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
