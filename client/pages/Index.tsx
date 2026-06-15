@@ -335,7 +335,7 @@ const Index = () => {
               onClick={() => setIsClientsModalOpen(true)}
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary/20 text-primary rounded-lg hover:bg-primary/30 transition-all font-semibold border border-primary/50 hover:border-primary/80 hover:shadow-lg"
             >
-              View All Partners
+              View All Collaborators
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
