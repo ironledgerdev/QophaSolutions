@@ -48,19 +48,21 @@ export const ServiceModal = ({ isOpen, service, onClose }: ServiceModalProps) =>
             </p>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">What We Offer</h3>
-            <ul className="space-y-4">
-              {service.items.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4 group">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors mt-0.5">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700 text-lg group-hover:text-primary transition-colors">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {service.items.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">What We Offer</h3>
+              <ul className="space-y-4">
+                {service.items.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4 group">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors mt-0.5">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    </div>
+                    <span className="text-gray-700 text-lg group-hover:text-primary transition-colors">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-8 pt-8 border-t border-gray-200">
             <p className="text-gray-600 mb-4">Ready to get started with our {service.title.toLowerCase()}?</p>

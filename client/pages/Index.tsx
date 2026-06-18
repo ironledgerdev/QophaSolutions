@@ -7,6 +7,18 @@ import { ClientsModal } from '@/components/ClientsModal';
 
 
 const serviceData: Record<string, Service> = {
+  sustainability: {
+    title: 'Sustainability Development Solutions',
+    description: 'Integrated sustainability and transformation solutions',
+    items: [
+      'Circularity',
+      'Skills Development',
+      'Enterprise Development',
+      'Socio-Economic Development',
+    ],
+    fullDescription:
+      'Our Sustainability Development Solutions bring together programme design, implementation, and performance monitoring across key transformation pillars. We work with clients to build practical, measurable initiatives that support sustainability goals while strengthening people, enterprises, and communities.',
+  },
   advisory: {
     title: 'Impact Advisory Services',
     description: 'Strategic advisory and transformation solutions',
@@ -190,13 +202,10 @@ const Index = () => {
                   We are a <span className="font-semibold">B-BBEE Level one woman-owned impact advisory and sustainability development solutions firm offering end-to-end project management services</span>.
                 </p>
                 <p>
-                  We co-create, implement and monitor bespoke client projects/programmes that align to the National Development Plan, National Skills Development Plan and the global Sustainable Development Goals.
+                  We co-create, implement and monitor bespoke client projects/programmes that align to the National Development Plan, National Skills Development Plan and the global Sustainable Development Goals. Our work focuses on sustainability and transformation pillars including Circularity, Skill Development, Enterprise Development, Circularity, Skills Development, Enterprise & Supplier Development and Socio-Economic Development.
                 </p>
                 <p>
-                  Our work focuses on sustainability and transformation pillars including Circularity, Skills Development, Enterprise Development.
-                </p>
-                <p>
-                  We have a strong team of accredited facilitators, Assessors and Moderators, offering training in SETA and QCTO accredited and non accredited courses.
+                  We have a strong team of accredited Facilitators, Assessors and Moderators, offering training in SETA and QCTO accredited and non-accredited courses.
                 </p>
               </div>
             </div>
@@ -231,26 +240,41 @@ const Index = () => {
 
             <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10 hover:border-primary/30 transition-colors text-center">
               <h3 className="text-2xl font-bold text-white mb-4">Our Core Values</h3>
-              <ul className="space-y-3 text-gray-200 text-center">
-                <li className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span><strong>Client Centricity:</strong> Bespoke Solutions</span>
+              <ul className="space-y-4 text-gray-200 max-w-md mx-auto">
+                <li className="flex items-start gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
+                    <strong className="sm:min-w-[145px]">Client Centricity:</strong>
+                    <span>Bespoke Solutions</span>
+                  </span>
                 </li>
-                <li className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span><strong>Collaboration:</strong> Co-creating & stakeholder partnership</span>
+                <li className="flex items-start gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
+                    <strong className="sm:min-w-[145px]">Collaboration:</strong>
+                    <span>Co-creating & stakeholder partnership</span>
+                  </span>
                 </li>
-                <li className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span><strong>Innovation:</strong> Better ways to deliver</span>
+                <li className="flex items-start gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
+                    <strong className="sm:min-w-[145px]">Innovation:</strong>
+                    <span>Better ways to deliver</span>
+                  </span>
                 </li>
-                <li className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span><strong>Professionalism:</strong> High competence & skills</span>
+                <li className="flex items-start gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
+                    <strong className="sm:min-w-[145px]">Professionalism:</strong>
+                    <span>High competence & skills</span>
+                  </span>
                 </li>
-                <li className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span><strong>Impact:</strong> Positive & measurable results</span>
+                <li className="flex items-start gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
+                    <strong className="sm:min-w-[145px]">Impact:</strong>
+                    <span>Positive & measurable results</span>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -269,44 +293,12 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-5xl mx-auto">
-            <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                  <Award className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">Sustainability Development Solutions</h3>
-              </div>
-              <div className="space-y-4">
-                <button
-                  onClick={() => handleServiceClick('circularity')}
-                  className="w-full text-left p-4 bg-white/5 hover:bg-white/10 rounded-lg transition-colors group/sub"
-                >
-                  <h4 className="font-semibold text-white mb-1 group-hover/sub:text-primary transition-colors">Circularity</h4>
-                  <p className="text-sm text-gray-300 group-hover/sub:text-gray-200">Circular economy and resource optimization</p>
-                </button>
-                <button
-                  onClick={() => handleServiceClick('enterprise')}
-                  className="w-full text-left p-4 bg-white/5 hover:bg-white/10 rounded-lg transition-colors group/sub"
-                >
-                  <h4 className="font-semibold text-white mb-1 group-hover/sub:text-primary transition-colors">Enterprise Development</h4>
-                  <p className="text-sm text-gray-300 group-hover/sub:text-gray-200">Business growth and transformation</p>
-                </button>
-                <button
-                  onClick={() => handleServiceClick('skills')}
-                  className="w-full text-left p-4 bg-white/5 hover:bg-white/10 rounded-lg transition-colors group/sub"
-                >
-                  <h4 className="font-semibold text-white mb-1 group-hover/sub:text-primary transition-colors">Skills Development</h4>
-                  <p className="text-sm text-gray-300 group-hover/sub:text-gray-200">Training and competency development</p>
-                </button>
-                <button
-                  onClick={() => handleServiceClick('socio')}
-                  className="w-full text-left p-4 bg-white/5 hover:bg-white/10 rounded-lg transition-colors group/sub"
-                >
-                  <h4 className="font-semibold text-white mb-1 group-hover/sub:text-primary transition-colors">Socio-Economic Development</h4>
-                  <p className="text-sm text-gray-300 group-hover/sub:text-gray-200">Community impact and transformation</p>
-                </button>
-              </div>
-            </div>
+            <ServiceCard
+              title="Sustainability Development Solutions"
+              icon={Zap}
+              items={[]}
+              onClick={() => handleServiceClick('sustainability')}
+            />
             <ServiceCard
               title="Impact Advisory Services"
               icon={Lightbulb}
