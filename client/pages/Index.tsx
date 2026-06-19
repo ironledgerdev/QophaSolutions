@@ -1,5 +1,5 @@
 import { Layout } from '@/components/Layout';
-import { ArrowRight, CheckCircle, Target, Users, Lightbulb, Award, Briefcase, Zap, TrendingUp } from 'lucide-react';
+import { ArrowRight, Target, Users, Lightbulb, Award, Briefcase, Zap, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { ServiceModal, Service } from '@/components/ServiceModal';
 import { ClientCarousel } from '@/components/ClientCarousel';
@@ -12,42 +12,31 @@ const serviceData: Record<string, Service> = {
     description: 'Integrated sustainability and transformation solutions',
     items: [
       'Circularity',
+      'Supplier Development',
       'Skills Development',
       'Enterprise Development',
       'Socio-Economic Development',
     ],
     fullDescription:
       'Our Sustainability Development Solutions bring together programme design, implementation, and performance monitoring across key transformation pillars. We work with clients to build practical, measurable initiatives that support sustainability goals while strengthening people, enterprises, and communities.',
+    itemDetails: {
+      Circularity:
+        'Our offering blends strategic insight, structured programme delivery, and value chain integration to reduce waste, recover resources, and unlock new economic opportunities. We strengthen supply chains, enhance SME participation, and drive long-term environmental and social impact.',
+      'Supplier Development':
+        'Our Supplier Development services help organisations optimise their procurement processes and build diverse, capable supplier networks. We empower organisations with the insights, strategies, and support needed to build stronger, future-ready value chains.',
+      'Skills Development':
+        'Our Skills Development services focus on equipping individuals and organisations with the competencies needed to thrive in today\'s dynamic business environment. We design and deliver accredited and non-accredited programmes.',
+      'Enterprise Development':
+        'We provide end-to-end Enterprise Development services that help businesses transition from informal to formal operations that can scale sustainably. Our experienced team drives clarity, capability, and sustainable performance across every stage of the business journey.',
+      'Socio-Economic Development':
+        'We design and execute Socio-Economic Development initiatives that create lasting positive impact in communities. From strategy formulation to programme implementation and impact evaluation, we work collaboratively with stakeholders to drive sustainable transformation through measurable, scalable outcomes.',
+    },
   },
   advisory: {
     title: 'Impact Advisory Services',
     description: 'Strategic advisory and transformation solutions',
     items: [],
     fullDescription: 'Our Advisory approach aligns strategy, operations, and reporting with ESG and transformation priorities - strengthening value chains, enabling inclusive growth, and embedding purpose-driven performance across the business.',
-  },
-  circularity: {
-    title: 'Circularity',
-    description: 'Circular economy solutions',
-    items: [],
-    fullDescription: 'Our offering blends strategic insight, structured programme delivery, and value chain integration to reduce waste, recover resources, and unlock new economic opportunities. We strengthen supply chains, enhance SME participation, and drive long-term environmental and social impact',
-  },
-  enterprise: {
-    title: 'Enterprise Development',
-    description: 'Strategic business growth and transformation',
-    items: [],
-    fullDescription: 'We provide end-to-end Enterprise Development services that help businesses transition from informal to formal operations that can scale sustainably. Our experienced team drives clarity, capability, and sustainable performance across every stage of your business journey.',
-  },
-  skills: {
-    title: 'Skills Development',
-    description: 'Comprehensive training and development solutions',
-    items: [],
-    fullDescription: 'Our Skills Development services focus on equipping individuals and organisations with the competencies needed to thrive in today\'s dynamic business environment. We design and deliver accredited and non-accredited programmes.',
-  },
-  socio: {
-    title: 'Socio-Economic Development',
-    description: 'Community transformation and impact initiatives',
-    items: [],
-    fullDescription: 'We design and execute Socio-Economic Development initiatives that create lasting positive impact in communities. From strategy formulation to programme implementation and impact evaluation, we work collaboratively with stakeholders to drive sustainable transformation that aligns with national development measurable, scalable outcomes.',
   },
 };
 
@@ -104,10 +93,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) => (
-  <button
-    onClick={onClick}
-    className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15 text-left w-full"
-  >
+  <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15 text-left w-full">
     <div className="flex items-center gap-3 mb-6">
       <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
         <Icon className="w-6 h-6 text-primary" />
@@ -123,11 +109,15 @@ const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) =>
       ))}
     </ul>
     {onClick && (
-      <div className="mt-6 text-primary font-semibold flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+      <button
+        type="button"
+        onClick={onClick}
+        className="mt-6 inline-flex items-center gap-2 text-primary font-semibold transition-transform group-hover:translate-x-1 hover:text-white"
+      >
         Learn More <ArrowRight className="w-4 h-4" />
-      </div>
+      </button>
     )}
-  </button>
+  </div>
 );
 
 const ExperienceCard = ({ number, label }: { number: string; label: string }) => (
@@ -240,41 +230,21 @@ const Index = () => {
 
             <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10 hover:border-primary/30 transition-colors text-center">
               <h3 className="text-2xl font-bold text-white mb-4">Our Core Values</h3>
-              <ul className="space-y-4 text-gray-200 max-w-md mx-auto">
-                <li className="flex items-start gap-3 text-left">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
-                    <strong className="sm:min-w-[145px]">Client Centricity:</strong>
-                    <span>Bespoke Solutions</span>
-                  </span>
+              <ul className="max-w-2xl mx-auto space-y-2 text-left text-gray-200">
+                <li>
+                  <span className="font-semibold text-white">Client Centricity:</span> Bespoke solutions
                 </li>
-                <li className="flex items-start gap-3 text-left">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
-                    <strong className="sm:min-w-[145px]">Collaboration:</strong>
-                    <span>Co-creating & stakeholder partnership</span>
-                  </span>
+                <li>
+                  <span className="font-semibold text-white">Collaboration:</span> Co-creating and stakeholder partnership
                 </li>
-                <li className="flex items-start gap-3 text-left">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
-                    <strong className="sm:min-w-[145px]">Innovation:</strong>
-                    <span>Better ways to deliver</span>
-                  </span>
+                <li>
+                  <span className="font-semibold text-white">Innovation:</span> Better ways to deliver
                 </li>
-                <li className="flex items-start gap-3 text-left">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
-                    <strong className="sm:min-w-[145px]">Professionalism:</strong>
-                    <span>High competence & skills</span>
-                  </span>
+                <li>
+                  <span className="font-semibold text-white">Professionalism:</span> High competence and skills
                 </li>
-                <li className="flex items-start gap-3 text-left">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="flex flex-1 flex-col sm:flex-row sm:gap-2">
-                    <strong className="sm:min-w-[145px]">Impact:</strong>
-                    <span>Positive & measurable results</span>
-                  </span>
+                <li>
+                  <span className="font-semibold text-white">Impact:</span> Positive and measurable results
                 </li>
               </ul>
             </div>
@@ -404,7 +374,7 @@ const Index = () => {
           </div>
 
           <div className="text-sm text-gray-400">
-            <p>Office: 084 417 4305</p>
+            <p>Office: +27 84 417 4305</p>
             <p>33 Ballyclare Drive, Bryanston, Gauteng 2191</p>
           </div>
         </div>
@@ -412,13 +382,16 @@ const Index = () => {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/27084174305?text=Hi%20Qopha%20Solutions%2C%20I%27d%20like%20to%20schedule%20a%20consultation"
+        href="https://wa.me/27844174305?text=Hi%20Qopha%20Solutions%2C%20I%27d%20like%20to%20schedule%20a%20consultation"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 z-40 group"
+        className="fixed bottom-6 right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#38d16a] via-[#23c55e] to-[#109245] p-[3px] shadow-[0_18px_30px_rgba(8,35,19,0.35)] transition-all duration-300 hover:scale-110 hover:shadow-[0_24px_36px_rgba(8,35,19,0.45)] sm:bottom-8 sm:right-8 group"
         title="Chat with us on WhatsApp"
       >
-        <img src="https://cdn.builder.io/api/v1/image/assets%2F63ae93423ad24014ac015627ba16894f%2Fb1bc1b2025d54653a41575e1d2ae6a4e?format=webp&width=800&height=1200" alt="WhatsApp" className="w-8 h-8 group-hover:scale-110 transition-transform" />
+        <span className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.35),transparent_32%),linear-gradient(145deg,#2fe36c_0%,#24c55c_58%,#169944_100%)] shadow-[inset_0_2px_5px_rgba(255,255,255,0.28),inset_0_-10px_16px_rgba(7,61,27,0.32)]">
+          <span className="absolute inset-x-3 top-2 h-4 rounded-full bg-white/25 blur-md"></span>
+          <img src="/whatsapp-logo.svg" alt="WhatsApp" className="relative h-10 w-10 drop-shadow-[0_3px_5px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110" />
+        </span>
       </a>
     </Layout>
   );

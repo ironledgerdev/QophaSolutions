@@ -47,7 +47,7 @@ export const experienceGroups: ClientGroup[] = [
     ],
   },
   {
-    category: 'Strategic Partners & NGO',
+    category: 'Strategic Partners & NGOs',
     columnsClassName: 'grid-cols-2 sm:grid-cols-3 xl:grid-cols-5',
     clients: [
       { name: 'NTHA', category: 'Strategic Partners & NGO', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F5eddc262e7d34b5bb4d1498fc04cd8d8?format=webp&width=800&height=1200' },
@@ -69,7 +69,7 @@ export const ClientCarousel = () => {
       <img
         src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2Fb2900bea7152422ba9f4cd02a3661888?format=webp&width=800&height=1200"
         alt="Qopha Solutions experience collaborators board"
-        className="w-full h-auto object-contain"
+        className="h-auto w-full object-contain"
       />
     </div>
   );

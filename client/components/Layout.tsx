@@ -49,7 +49,7 @@ const Header = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:0844174305"
+              href="tel:+27844174305"
               className="inline-flex items-center gap-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
             >
               <Phone className="w-4 h-4" />
@@ -79,7 +79,7 @@ const Header = () => {
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Clients & Experience</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</MobileNavLink>
             <a
-              href="tel:0844174305"
+              href="tel:+27844174305"
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-colors"
             >
@@ -127,6 +127,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-sm text-primary">SERVICES</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><a href="#services" className="hover:text-primary transition-colors">Sustainability Development Solutions</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Supplier Development</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Impact Advisory Services</a></li>
             </ul>
           </div>
@@ -156,12 +157,12 @@ const Footer = () => {
                 <div>
                   <p className="font-medium text-white">Phone / WhatsApp</p>
                   <a
-                    href="https://wa.me/27084174305?text=Hi%20Qopha%20Solutions"
+                    href="https://wa.me/27844174305?text=Hi%20Qopha%20Solutions"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-primary transition-colors"
                   >
-                    084 417 4305
+                    +27 84 417 4305
                   </a>
                 </div>
               </div>
