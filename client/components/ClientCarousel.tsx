@@ -27,13 +27,12 @@ export const experienceGroups: ClientGroup[] = [
   },
   {
     category: 'Mining, Energy & ICT',
-    columnsClassName: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5',
+    columnsClassName: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4',
     clients: [
       { name: 'Anglo American', category: 'Mining', imageSrc: '/logos/experience/anglo-american-board.png' },
       { name: 'Sasol', category: 'Energy', imageSrc: '/logos/experience/sasol-board.png' },
       { name: 'Telkom Foundation', category: 'ICT', imageSrc: '/logos/experience/telkom-foundation-board.png' },
       { name: 'Samsung', category: 'ICT', imageSrc: '/logos/experience/samsung-board.png' },
-      { name: 'Naspers', category: 'ICT', imageSrc: '/logos/experience/naspers-board.png' },
     ],
   },
   {
@@ -78,21 +77,21 @@ export const ClientCarousel = () => {
 
 const ClientLogoCard = ({ name, category, logo, imageSrc }: Client) => {
   return (
-    <div className="min-h-[124px] rounded-xl border border-white/15 bg-white px-4 py-5 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
-      <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
-        <div className="flex h-14 w-full items-center justify-center overflow-hidden">
+    <div className="rounded-xl border border-white/15 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
+      <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
+        <div className="flex items-center justify-center w-full h-20">
           {imageSrc || logo ? (
             <img
               src={imageSrc ?? `/logos/${logo}.svg`}
               alt={name}
-              className="max-h-full max-w-[88%] object-contain"
+              className="max-h-full max-w-full object-contain"
             />
           ) : (
             <div className="px-2 text-sm font-bold text-gray-500">{name}</div>
           )}
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-900">{name}</p>
+          <p className="text-sm font-semibold text-gray-900 leading-snug">{name}</p>
           <p className="text-xs uppercase tracking-[0.16em] text-gray-500">{category}</p>
         </div>
       </div>
