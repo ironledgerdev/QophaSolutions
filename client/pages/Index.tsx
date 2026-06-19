@@ -12,6 +12,7 @@ const serviceData: Record<string, Service> = {
     description: 'Integrated sustainability and transformation solutions',
     items: [
       'Circularity',
+      'Supplier Development',
       'Skills Development',
       'Enterprise Development',
       'Socio-Economic Development',
@@ -30,6 +31,12 @@ const serviceData: Record<string, Service> = {
     description: 'Circular economy solutions',
     items: [],
     fullDescription: 'Our offering blends strategic insight, structured programme delivery, and value chain integration to reduce waste, recover resources, and unlock new economic opportunities. We strengthen supply chains, enhance SME participation, and drive long-term environmental and social impact',
+  },
+  supplier: {
+    title: 'Supplier Development',
+    description: 'Stronger, future-ready value chains',
+    items: [],
+    fullDescription: 'Our Supplier Development services help organisations optimise their procurement processes and build diverse, capable supplier networks. We empower organisations with the insights, strategies, and support needed to build stronger, future-ready value chains.',
   },
   enterprise: {
     title: 'Enterprise Development',
@@ -101,13 +108,11 @@ interface ServiceCardProps {
   icon: React.ComponentType<{ className?: string }>;
   items: string[];
   onClick?: () => void;
+  onItemClick?: (item: string) => void;
 }
 
-const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) => (
-  <button
-    onClick={onClick}
-    className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15 text-left w-full"
-  >
+const ServiceCard = ({ title, icon: Icon, items, onClick, onItemClick }: ServiceCardProps) => (
+  <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:shadow-2xl transition-all duration-300 hover:bg-white/15 text-left w-full">
     <div className="flex items-center gap-3 mb-6">
       <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
         <Icon className="w-6 h-6 text-primary" />
@@ -118,16 +123,30 @@ const ServiceCard = ({ title, icon: Icon, items, onClick }: ServiceCardProps) =>
       {items.map((item, idx) => (
         <li key={idx} className="flex items-start gap-3 text-gray-300 group-hover:text-gray-100 transition-colors">
           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
-          <span className="group-hover:translate-x-1 transition-transform">{item}</span>
+          {onItemClick ? (
+            <button
+              type="button"
+              onClick={() => onItemClick(item)}
+              className="text-left transition-transform hover:translate-x-1 hover:text-primary"
+            >
+              {item}
+            </button>
+          ) : (
+            <span className="group-hover:translate-x-1 transition-transform">{item}</span>
+          )}
         </li>
       ))}
     </ul>
     {onClick && (
-      <div className="mt-6 text-primary font-semibold flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+      <button
+        type="button"
+        onClick={onClick}
+        className="mt-6 text-primary font-semibold flex items-center gap-2 transition-transform group-hover:translate-x-1 hover:text-white"
+      >
         Learn More <ArrowRight className="w-4 h-4" />
-      </div>
+      </button>
     )}
-  </button>
+  </div>
 );
 
 const ExperienceCard = ({ number, label }: { number: string; label: string }) => (
@@ -163,10 +182,27 @@ const Index = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClientsModalOpen, setIsClientsModalOpen] = useState(false);
+  const sustainabilityItemKeyMap: Record<string, keyof typeof serviceData> = {
+    Circularity: 'circularity',
+    'Supplier Development': 'supplier',
+    'Skills Development': 'skills',
+    'Enterprise Development': 'enterprise',
+    'Socio-Economic Development': 'socio',
+  };
 
   const handleServiceClick = (serviceKey: keyof typeof serviceData) => {
     setSelectedService(serviceData[serviceKey]);
     setIsModalOpen(true);
+  };
+
+  const handleSubserviceClick = (item: string) => {
+    const serviceKey = sustainabilityItemKeyMap[item];
+
+    if (!serviceKey) {
+      return;
+    }
+
+    handleServiceClick(serviceKey);
   };
 
   return (
@@ -296,8 +332,9 @@ const Index = () => {
             <ServiceCard
               title="Sustainability Development Solutions"
               icon={Zap}
-              items={[]}
+              items={serviceData.sustainability.items}
               onClick={() => handleServiceClick('sustainability')}
+              onItemClick={handleSubserviceClick}
             />
             <ServiceCard
               title="Impact Advisory Services"
