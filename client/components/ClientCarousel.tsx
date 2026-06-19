@@ -68,7 +68,7 @@ export const ClientCarousel = () => {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-xl">
       <img
-        src="/logos/experience-board.jpeg"
+        src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2Fb2900bea7152422ba9f4cd02a3661888?format=webp&width=800&height=1200"
         alt="Qopha Solutions experience collaborators board"
         className="w-full h-auto object-contain"
       />
