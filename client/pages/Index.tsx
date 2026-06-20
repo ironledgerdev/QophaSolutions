@@ -160,6 +160,7 @@ const Index = () => {
   };
 
   return (
+    <>
     <Layout>
       {/* Hero Section */}
       <section className="text-white py-20 md:py-32 relative overflow-hidden">
@@ -399,6 +400,7 @@ const Index = () => {
         </span>
       </a>
     </Layout>
+    </>
   );
 };
 
