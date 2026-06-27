@@ -36,7 +36,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F1aab7d30cc294073a93190e49b8a7f56?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F1aab7d30cc294073a93190e49b8a7f56?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-16 h-16 group-hover:scale-110 transition-transform duration-300" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -126,9 +126,13 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-sm text-primary">SERVICES</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#services" className="hover:text-primary transition-colors">Sustainability Development Solutions</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Supplier Development</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Impact Advisory Services</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Sustainability Development Solutions</a></li>
+              <li className="ml-4"><a href="#services" className="hover:text-primary transition-colors">Circularity</a></li>
+              <li className="ml-4"><a href="#services" className="hover:text-primary transition-colors">Enterprise Development</a></li>
+              <li className="ml-4"><a href="#services" className="hover:text-primary transition-colors">Skills Development</a></li>
+              <li className="ml-4"><a href="#services" className="hover:text-primary transition-colors">Socio-Economic Development</a></li>
+              <li className="ml-4"><a href="#services" className="hover:text-primary transition-colors">Supplier Development</a></li>
             </ul>
           </div>
 
