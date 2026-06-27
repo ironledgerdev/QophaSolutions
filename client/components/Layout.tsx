@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowRight, Menu, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -36,7 +36,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F63ae93423ad24014ac015627ba16894f%2Fa70fe3c5c0c249729aa9c79db5f1dcfe?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F1aab7d30cc294073a93190e49b8a7f56?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -49,7 +49,7 @@ const Header = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:0844174305"
+              href="tel:+27844174305"
               className="inline-flex items-center gap-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 font-medium hover:shadow-lg hover:scale-105"
             >
               <Phone className="w-4 h-4" />
@@ -79,7 +79,7 @@ const Header = () => {
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Clients & Experience</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</MobileNavLink>
             <a
-              href="tel:0844174305"
+              href="tel:+27844174305"
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-colors"
             >
@@ -113,70 +113,73 @@ const Footer = () => {
   return (
     <footer className="bg-black/40 backdrop-blur-md border-t border-white/10 text-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
+        <div className="grid gap-12 mb-12 md:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://cdn.builder.io/api/v1/image/assets%2F63ae93423ad24014ac015627ba16894f%2Fa70fe3c5c0c249729aa9c79db5f1dcfe?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-10 h-10" />
+              <img src="https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F1aab7d30cc294073a93190e49b8a7f56?format=webp&width=800&height=1200" alt="Qopha Solutions" className="w-10 h-10" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed max-w-md">
-              Real Impact Solutions for Sustainable Transformation. A B-BBEE Level one black woman owned training and consultancy firm specialising in skills development and end-to-end project management services.
+              Real impact solutions for sustainable transformation. A B-BBEE Level One black woman-owned impact advisory and sustainability development solution firm.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-semibold mb-4 text-sm text-primary">SERVICES</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="#" className="hover:text-primary transition-colors">Skills Development</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Enterprise Development</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Supplier Development</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Socio-Economic Dev</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4 text-sm text-primary">COMPANY</h3>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#values" className="hover:text-primary transition-colors">Our Values</a></li>
-                <li><a href="#experience" className="hover:text-primary transition-colors">Experience</a></li>
-                <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-              </ul>
+          <div>
+            <h3 className="font-semibold mb-4 text-sm text-primary">SERVICES</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><a href="#services" className="hover:text-primary transition-colors">Sustainability Development Solutions</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Supplier Development</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Impact Advisory Services</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4 text-sm text-primary">COMPANY</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#values" className="hover:text-primary transition-colors">Our Values</a></li>
+              <li><a href="#experience" className="hover:text-primary transition-colors">Experience</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4 text-sm text-primary">CONTACT</h3>
+            <div className="space-y-4 text-sm text-gray-300">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Address</p>
+                  <p>33 Ballyclare Drive, Ballywoods Office Park, Cedarwood House, Bryanston, Gauteng 2191</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Phone / WhatsApp</p>
+                  <a
+                    href="https://wa.me/27844174305?text=Hi%20Qopha%20Solutions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    +27 84 417 4305
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Email</p>
+                  <a href="mailto:info@qophasolutions.co.za" className="hover:text-primary transition-colors">
+                    info@qophasolutions.co.za
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <div className="text-sm">
-                <p className="font-medium">Address</p>
-                <p className="text-gray-300">33 Ballyclare Drive, Ballywoods Office Park, Cedarwood House, Bryanston, Gauteng 2191</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <div className="text-sm">
-                <p className="font-medium">Phone / WhatsApp</p>
-                <a
-                  href="https://wa.me/27084174305?text=Hi%20Qopha%20Solutions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  084 417 4305
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <div className="text-sm">
-                <p className="font-medium">Email</p>
-                <p className="text-gray-300">info@qophasolutions.co.za</p>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center text-sm text-gray-400">
             <p>&copy; 2026 Qopha Solutions. All rights reserved. | Company Reg: 2016/172461/07</p>
           </div>
