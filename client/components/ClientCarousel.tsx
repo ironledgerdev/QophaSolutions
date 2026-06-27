@@ -42,7 +42,7 @@ export const experienceGroups: ClientGroup[] = [
       { name: 'Gauteng Province', category: 'Public Sector', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F03307ef718a44a0894c158e121d694e4?format=webp&width=800&height=1200' },
       { name: 'Department of Small Business Development', category: 'Public Sector', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F701bd94eb71b4dffbcc23731c9b11d03?format=webp&width=800&height=1200' },
       { name: 'SEDA', category: 'Public Sector', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F4239073cad51443eb1f15b903100e826?format=webp&width=800&height=1200' },
-      { name: 'EWC', category: 'Financial Services', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F6cd424a06ec34dc283bc47bb32ad6ebe?format=webp&width=800&height=1200' },
+      { name: 'EWC', category: 'Public Sector', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F6cd424a06ec34dc283bc47bb32ad6ebe?format=webp&width=800&height=1200' },
       { name: 'Standard Bank', category: 'Financial Services', imageSrc: 'https://cdn.builder.io/api/v1/image/assets%2Fdfea6679c9184e19966cac73ef185692%2F828365e3b8994513b73f959263d5f525?format=webp&width=800&height=1200' },
     ],
   },
