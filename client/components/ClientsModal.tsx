@@ -34,7 +34,7 @@ export const ClientsModal = ({ isOpen, onClose }: ClientsModalProps) => {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-gray-950/95 backdrop-blur-md rounded-2xl border border-white/10 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-gray-950/95 backdrop-blur-md border-b border-white/10 flex items-center justify-between p-6">
+        <div className="sticky top-0 bg-gray-950/95 backdrop-blur-md border-b border-white/10 flex items-center justify-between p-6 pt-8">
           <h2 className="text-3xl font-bold text-white">All Collaborators</h2>
           <button
             onClick={onClose}

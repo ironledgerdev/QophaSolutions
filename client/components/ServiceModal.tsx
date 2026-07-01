@@ -40,7 +40,7 @@ export const ServiceModal = ({ isOpen, service, onClose }: ServiceModalProps) =>
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
       <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-300">
-        <div className="sticky top-0 bg-white border-b border-gray-200 flex items-center justify-between p-6">
+        <div className="sticky top-0 bg-white border-b border-gray-200 flex items-center justify-between p-6 pt-8">
           <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
           <button
             onClick={onClose}
